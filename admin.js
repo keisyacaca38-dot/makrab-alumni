@@ -1,49 +1,23 @@
 
-const fileInput = document.getElementById("fileCSV");
-const tabel = document.getElementById("tabelTamu");
-const jumlahTamu = document.getElementById("jumlahTamu");
+function ambilNomorWA(tamu) {
+    const kunci = Object.keys(tamu).find(key => {
+        const namaKolom = key
+            .replace(/^\uFEFF/, "")
+            .trim()
+            .toLowerCase();
 
-let dataTamu = [];
-
-// MEMBACA FILE CSV
-fileInput.addEventListener("change", function(e) {
-
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    if (typeof Papa === "undefined") {
-        alert("Library CSV gagal dimuat. Periksa koneksi internet.");
-        return;
-    }
-
-    Papa.parse(file, {
-        header: true,
-        skipEmptyLines: true,
-        transformHeader: header => header.trim(),
-        transform: value => value.trim(),
-
-        complete: function(results) {
-
-            dataTamu = results.data.filter(tamu =>
-                tamu.nama_tamu || tamu.no_whatsapp
-            );
-
-            // Simpan data pada browser
-            localStorage.setItem(
-                "dataTamuMakrab",
-                JSON.stringify(dataTamu)
-            );
-
-            tampilkanTamu();
-        },
-
-        error: function(error) {
-            alert("Gagal membaca CSV: " + error.message);
-        }
+        return [
+            "no_whatsapp",
+            "no_wa",
+            "nomor_wa",
+            "nomor_whatsapp",
+            "whatsapp"
+        ].includes(namaKolom);
     });
 
-});
+    return kunci ? String(tamu[kunci]).trim() : "";
+}
+
 
 // MENAMPILKAN DATA TAMU
 function tampilkanTamu() {
@@ -63,8 +37,7 @@ function tampilkanTamu() {
 
         const tr = document.createElement("tr");
 
-        const nomorWA = tamu.no_whatsapp || tamu.no_wa || "";
-
+        const nomorWA = ambilNomorWA(tamu);
         const values = [
             tamu.id,
             tamu.nama_tamu,
@@ -111,10 +84,8 @@ function kirimUndangan(index) {
 
     const tamu = dataTamu[index];
 
-    const nomor = String(
-        tamu.no_whatsapp || tamu.no_wa || ""
-    ).replace(/\D/g, "");
-
+    const nomor = ambilNomorWA(tamu).replace(/\D/g, "");
+    
     if (!nomor) {
         alert("Nomor WhatsApp " + tamu.nama_tamu + " tidak ditemukan!");
         return;
