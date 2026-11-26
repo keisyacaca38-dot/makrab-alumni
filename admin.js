@@ -82,8 +82,9 @@ function tampilkanTamu() {
 
         button.textContent = "Kirim Undangan";
 
-        button.addEventListener("click", function() {
-            kirimUndangan(index);
+        <button onclick="kirimUndangan(tamu)">
+            Kirim Undangan
+        </button>
         });
 
         tdAksi.appendChild(button);
@@ -136,11 +137,17 @@ Panitia Makrab Alumni
 
     
 
+
 function kirimUndangan(tamu) {
-    const nomor = tamu.no_wa.replace(/\D/g, "");
+    const nomor = String(tamu.no_wa).replace(/\D/g, "");
+
+    if (!nomor) {
+        alert("Nomor WhatsApp tidak ditemukan!");
+        return;
+    }
 
     const linkUndangan = new URL(
-        " https://keisyacaca38-dot.github.io/makrab-alumni/"
+        "https://keisyacaca38-dot.github.io/makrab-alumni/"
     );
 
     linkUndangan.searchParams.set("to", tamu.nama);
