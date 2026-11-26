@@ -102,8 +102,8 @@ tabel.appendChild(tr);
 // GENERATOR LINK PERSONAL
 // ===================================
 
-function kirimUndangan(index)
-
+function kirimUndangan(index) {}
+    
 function kirimUndangan(index) {
     const tamu = dataTamu[index];
 
@@ -138,5 +138,5 @@ Sampai bertemu di acara makrab! 💗`;
     const linkWA = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
 
     window.open(linkWA, "_blank");
-
 }
+
