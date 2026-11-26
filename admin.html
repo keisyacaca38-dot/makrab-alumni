@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Makrab Alumni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="section">
+
+        <p class="gold-text">ADMINISTRATION</p>
+        <h2>Dashboard Admin</h2>
+
+        <p class="description">
+            Sistem pengelolaan undangan Makrab Alumni.
+        </p>
+
+        <div class="event-card">
+
+            <h3>Upload Data Tamu</h3>
+
+            <input type="file" id="fileCSV" accept=".csv">
+
+            <p id="jumlahTamu" style="margin-top:20px">
+                Total tamu: 0
+            </p>
+
+        </div>
+
+        <br>
+
+        <div style="overflow-x:auto">
+
+            <table width="100%" border="1"
+                cellpadding="10" cellspacing="0"
+                style="background:#172337;border-color:#d8b66a;color:white">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Instansi</th>
+                        <th>Kategori</th>
+                        <th>WhatsApp</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelTamu">
+                    <tr>
+                        <td colspan="6">
+                            Belum ada data tamu.
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <br>
+
+        <a href="index.html" class="gold-btn">
+            Kembali ke Undangan
+        </a>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+    <script src="admin.js"></script>
+</body>
+</html>

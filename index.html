@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makrab Alumni | A Night to Remember</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- MUSIK -->
+    <audio id="backsound" loop>
+        <source src="asset/backsound.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- TOMBOL MUSIK -->
+    <button id="musicBtn" class="music-btn" aria-label="Putar musik">
+        ♫
+    </button>
+
+    <!-- DEKORASI -->
+    <div class="stars"></div>
+    <div class="sparkle sparkle1">✦</div>
+    <div class="sparkle sparkle2">✧</div>
+    <div class="sparkle sparkle3">✦</div>
+
+    <!-- COVER -->
+    <div class="cover" id="cover">
+        <div class="cover-content">
+            <p class="small-title">THE GRAND INVITATION</p>
+            <div class="ornament">✧ ───── ✧</div>
+
+            <h1>A Night<br>to Remember</h1>
+
+            <p class="cover-subtitle">
+                Alumni Gathering & Malam Keakraban
+            </p>
+
+            <div class="cover-line"></div>
+
+            <p class="cover-date">2026 • A MEMORABLE NIGHT</p>
+
+            <p class="to-text">Kepada Yth.</p>
+            <h2 id="coverNama">Tamu Undangan</h2>
+
+            <button class="open-btn" id="openBtn">
+                <span>✉</span> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- ISI UNDANGAN -->
+    <main id="mainContent">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <p class="gold-text">YOU ARE INVITED TO</p>
+
+                <h1>A Night<br>to Remember</h1>
+
+                <div class="ornament">✦ ───── ✦</div>
+
+                <p class="hero-desc">
+                    Alumni Gathering & Malam Keakraban
+                </p>
+
+                <p class="hero-year">2026</p>
+
+                <a href="#about" class="scroll-btn">
+                    Explore Invitation ↓
+                </a>
+            </div>
+        </section>
+
+        <!-- SALAM UNDANGAN -->
+        <section id="about" class="section reveal">
+            <p class="gold-text">A SPECIAL INVITATION</p>
+            <h2>Untukmu,<br><span id="namaTamu">Tamu Undangan</span></h2>
+
+            <div class="divider">✧</div>
+
+            <p class="description">
+                Dengan penuh kebahagiaan, kami mengundang
+                Anda untuk hadir dalam malam keakraban alumni.
+                Sebuah kesempatan untuk kembali bertemu,
+                berbagi cerita, mengenang masa lalu,
+                dan menciptakan kenangan baru bersama.
+            </p>
+
+            <p class="signature">
+                Because every reunion has a story.
+            </p>
+        </section>
+
+        <!-- INFORMASI ACARA -->
+        <section class="event-section reveal">
+            <p class="gold-text">SAVE THE DATE</p>
+            <h2>Our Special Night</h2>
+
+            <div class="event-card">
+                <div class="event-icon">✧</div>
+                <h3>Alumni Gathering</h3>
+
+                <div class="event-info">
+                    <p>◷ Tanggal</p>
+                    <h4>30 Desember 2026</h4>
+
+                    <p>◷ Waktu</p>
+                    <h4>18.00 WIB - Selesai</h4>
+
+                    <p>⌖ Lokasi</p>
+                    <h4>Villa / Tempat Acara Alumni</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- COUNTDOWN -->
+        <section class="countdown-section reveal">
+            <p class="gold-text">COUNTING DOWN TO</p>
+            <h2>The Big Night</h2>
+
+            <div class="countdown">
+                <div class="time-box">
+                    <h2 id="days">00</h2>
+                    <p>Days</p>
+                </div>
+
+                <div class="time-box">
+                    <h2 id="hours">00</h2>
+                    <p>Hours</p>
+                </div>
+
+                <div class="time-box">
+                    <h2 id="minutes">00</h2>
+                    <p>Minutes</p>
+                </div>
+
+                <div class="time-box">
+                    <h2 id="seconds">00</h2>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RUNDOWN -->
+        <section class="section reveal">
+            <p class="gold-text">THE MOMENTS</p>
+            <h2>Event Rundown</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span>18.00</span>
+                    <div>
+                        <h3>Welcome & Registration</h3>
+                        <p>Kedatangan dan registrasi alumni.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>19.00</span>
+                    <div>
+                        <h3>Opening Ceremony</h3>
+                        <p>Pembukaan acara malam keakraban.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>19.30</span>
+                    <div>
+                        <h3>Dinner Together</h3>
+                        <p>Makan malam bersama seluruh alumni.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>20.30</span>
+                    <div>
+                        <h3>Games & Memories</h3>
+                        <p>Permainan dan berbagi cerita.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>21.30</span>
+                    <div>
+                        <h3>Music & Togetherness</h3>
+                        <p>Menikmati malam bersama.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span>22.30</span>
+                    <div>
+                        <h3>Closing</h3>
+                        <p>Penutupan dan foto bersama.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI -->
+        <section class="gallery-section reveal">
+            <p class="gold-text">OUR MEMORIES</p>
+            <h2>Beautiful Moments</h2>
+            <p class="description">
+                Setiap pertemuan memiliki cerita,
+                setiap kenangan selalu punya tempat.
+            </p>
+
+            <div class="gallery">
+                <img src="asset/foto-kelas.jpeg" alt="Kenangan alumni">
+                <img src="asset/foto-kelas-2.jpeg" alt="Momen kebersamaan">
+                <img src="asset/foto-kelas-3.jpeg" alt="Foto bersama alumni">
+            </div>
+        </section>
+
+        <!-- LOKASI -->
+        <section class="section reveal">
+            <p class="gold-text">FIND OUR LOCATION</p>
+            <h2>Where We Meet</h2>
+
+            <p class="description">
+                Kami menantikan kehadiranmu.
+                Sampai bertemu di malam penuh kenangan!
+            </p>
+
+            <a class="gold-btn"
+               href="https://www.google.com/maps/search/?api=1&query=Villa"
+               target="_blank">
+                Lihat Lokasi ↗
+            </a>
+        </section>
+
+        <!-- RSVP -->
+        <section id="rsvp" class="rsvp-section reveal">
+            <p class="gold-text">BE PART OF OUR STORY</p>
+            <h2>Will You Come?</h2>
+
+            <p class="description">
+                Kehadiranmu akan menjadi bagian
+                dari cerita indah malam ini.
+            </p>
+
+            <form id="rsvpForm">
+
+                <input type="text" id="rsvpNama"
+                    placeholder="Nama lengkap" required>
+
+                <select id="kehadiran" required>
+                    <option value="">Konfirmasi kehadiran</option>
+                    <option value="Hadir">Ya, saya akan hadir</option>
+                    <option value="Tidak Hadir">Maaf, saya tidak bisa hadir</option>
+                </select>
+
+                <textarea id="pesan"
+                    placeholder="Pesan untuk teman-teman (opsional)"></textarea>
+
+                <button type="submit" class="gold-btn">
+                    Kirim Konfirmasi ✦
+                </button>
+            </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="ornament">✧ ───── ✧</div>
+            <h2>Until We Meet Again</h2>
+            <p>With Love, Alumni Family</p>
+            <p class="copyright">
+                © 2026 Alumni Gathering
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
