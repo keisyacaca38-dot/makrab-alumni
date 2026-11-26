@@ -135,11 +135,12 @@ Panitia Makrab Alumni
 `;
 
     
+
 function kirimUndangan(tamu) {
     const nomor = tamu.no_wa.replace(/\D/g, "");
 
     const linkUndangan = new URL(
-        "https://USERNAME.github.io/makrab-alumni/"
+        " https://keisyacaca38-dot.github.io/makrab-alumni/"
     );
 
     linkUndangan.searchParams.set("to", tamu.nama);
@@ -158,5 +159,6 @@ Sampai bertemu di acara makrab! 💗`;
 
     window.open(linkWA, "_blank");
 }
+
 
 }
