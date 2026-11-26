@@ -1,4 +1,3 @@
-
 // ===================================
 // 1. PERSONALISASI UNDANGAN
 // ===================================
@@ -142,8 +141,8 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
     const kehadiran = document.getElementById("kehadiran").value;
     const pesan = document.getElementById("pesan").value;
 
-    // Ganti dengan nomor WhatsApp panitia
-    const nomorPanitia = "+628982680904";
+    // Ganti dengan nomor WhatsApp panitia (format: 628xxxxxxxxxx tanpa '+' atau spasi)
+    const nomorPanitia = "628982680904".replace(/\D/g, "");
 
     const teks = `
 HALO PANITIA MAKRAB ALUMNI!
@@ -156,10 +155,9 @@ Pesan:
 ${pesan}
 
 Terima kasih!
-`;
+`.trim();
 
-    const link = "https://wa.me/" + nomorPanitia +
-        "?text=" + encodeURIComponent(teks);
+    const link = `https://wa.me/${nomorPanitia}?text=${encodeURIComponent(teks)}`;
 
     window.open(link, "_blank");
 
