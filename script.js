@@ -143,7 +143,7 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
     const pesan = document.getElementById("pesan").value;
 
     // Ganti dengan nomor WhatsApp panitia
-    const nomorPanitia = "62892680904";
+    const nomorPanitia = "62898680904";
 
     const teks = `
 HALO PANITIA MAKRAB ALUMNI!
