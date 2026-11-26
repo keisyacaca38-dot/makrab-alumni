@@ -20,55 +20,22 @@ function ambilNomorWA(tamu) {
 
 
 // MENAMPILKAN DATA TAMU
-function tampilkanTamu() {
 
-    tabel.innerHTML = "";
+function ambilNomorWA(tamu) {
+    const kolom = Object.keys(tamu).find(key => {
+        const nama = key
+            .replace(/^\uFEFF/, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, "");
 
-    jumlahTamu.textContent =
-        "Total tamu: " + dataTamu.length;
-
-    if (dataTamu.length === 0) {
-        tabel.innerHTML =
-            '<tr><td colspan="6">Belum ada data tamu.</td></tr>';
-        return;
-    }
-
-    dataTamu.forEach((tamu, index) => {
-
-        const tr = document.createElement("tr");
-
-        const nomorWA = ambilNomorWA(tamu);
-        const values = [
-            tamu.id,
-            tamu.nama_tamu,
-            tamu.instansi,
-            tamu.kategori,
-            nomorWA
-        ];
-
-        values.forEach(value => {
-
-            const td = document.createElement("td");
-            td.textContent = value || "-";
-            tr.appendChild(td);
-
-        });
-
-        const tdAksi = document.createElement("td");
-
-        const button = document.createElement("button");
-        button.textContent = "Kirim Undangan";
-
-        button.onclick = function() {
-            kirimUndangan(index);
-        };
-
-        tdAksi.appendChild(button);
-        tr.appendChild(tdAksi);
-
-        tabel.appendChild(tr);
-
+        return nama.includes("whatsapp") ||
+        nama === "nowa" ||
+        nama === "nomorwa";
     });
+
+    return kolom ? String(tamu[kolom]).trim() : "";
+}
+
 }
 
 // MEMULIHKAN DATA SAAT ADMIN DIBUKA LAGI
@@ -80,16 +47,24 @@ if (dataTersimpan) {
 }
 
 // GENERATOR UNDANGAN WHATSAPP
+
 function kirimUndangan(index) {
 
     const tamu = dataTamu[index];
 
     const nomor = ambilNomorWA(tamu).replace(/\D/g, "");
-    
+
+    console.log("Data tamu:", tamu);
+    console.log("Nomor WhatsApp:", nomor);
+
     if (!nomor) {
-        alert("Nomor WhatsApp " + tamu.nama_tamu + " tidak ditemukan!");
+        alert("Nomor WhatsApp tidak terbaca. Periksa kolom CSV.");
         return;
     }
+
+    const nomorFinal = nomor.startsWith("0")
+        ? "62" + nomor.substring(1)
+        : nomor;
 
     const url = new URL(
         "https://keisyacaca38-dot.github.io/makrab-alumni/"
@@ -98,24 +73,23 @@ function kirimUndangan(index) {
     url.searchParams.set("to", tamu.nama_tamu);
     url.searchParams.set("kategori", tamu.kategori);
 
-    const pesan = `HALO ${tamu.nama_tamu}! 🎉
+    const pesan = `Halo ${tamu.nama_tamu}! 🎉
 
-Dengan hormat,
-
-Kami mengundang Anda untuk menghadiri:
+Kamu diundang ke acara:
 
 A NIGHT TO REMEMBER
 Alumni Gathering & Malam Keakraban 2026
 
-Silakan buka undangan digital berikut:
-
+Silakan buka undangan digital kami:
 ${url.toString()}
 
 Sampai bertemu di acara makrab! 💗`;
 
     const linkWA =
-        `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
+        "https://wa.me/" + nomorFinal +
+        "?text=" + encodeURIComponent(pesan);
 
     window.open(linkWA, "_blank");
-
 }
+
+
