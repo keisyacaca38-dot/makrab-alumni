@@ -76,21 +76,22 @@ function tampilkanTamu() {
 
         });
 
-        const tdAksi = document.createElement("td");
 
-        const button = document.createElement("button");
+const tdAksi = document.createElement("td");
 
-        button.textContent = "Kirim Undangan";
+const button = document.createElement("button");
 
-        <button onclick="kirimUndangan(tamu)">
-            Kirim Undangan
-        </button>
-        });
+button.textContent = "Kirim Undangan";
 
-        tdAksi.appendChild(button);
-        tr.appendChild(tdAksi);
+// Memanggil fungsi berdasarkan index tamu
+button.onclick = function () {
+    kirimUndangan(index);
+};
 
-        tabel.appendChild(tr);
+tdAksi.appendChild(button);
+tr.appendChild(tdAksi);
+
+tabel.appendChild(tr);
 
     });
 
@@ -101,19 +102,26 @@ function tampilkanTamu() {
 // GENERATOR LINK PERSONAL
 // ===================================
 
-function kirimUndangan(index) {
+function kirimUndangan(index)
 
+function kirimUndangan(index) {
     const tamu = dataTamu[index];
 
-    const url = new URL("index.html", window.location.href);
+    const nomor = String(tamu.no_wa || "").replace(/\D/g, "");
 
-    url.searchParams.set("to", tamu.instansi);
+    if (!nomor) {
+        alert("Nomor WhatsApp tidak ditemukan!");
+        return;
+    }
+
+    const url = new URL(
+        "https://keisyacaca38-dot.github.io/makrab-alumni/"
+    );
+
+    url.searchParams.set("to", tamu.nama_tamu);
     url.searchParams.set("kategori", tamu.kategori);
 
-    const linkUndangan = url.href;
-
-    const pesan = `
-HALO ${tamu.nama_tamu}!
+    const pesan = `HALO ${tamu.nama_tamu}! 🎉
 
 Dengan hormat,
 
@@ -122,50 +130,13 @@ Kami mengundang Anda untuk menghadiri:
 A NIGHT TO REMEMBER
 Alumni Gathering & Malam Keakraban 2026
 
-Instansi: ${tamu.instansi}
-Kategori: ${tamu.kategori}
-
-Silakan buka undangan personal Anda:
-
-${linkUndangan}
-
-Sampai bertemu di malam penuh kenangan!
-
-Salam hangat,
-Panitia Makrab Alumni
-`;
-
-    
-
-
-function kirimUndangan(tamu) {
-    const nomor = String(tamu.no_wa).replace(/\D/g, "");
-
-    if (!nomor) {
-        alert("Nomor WhatsApp tidak ditemukan!");
-        return;
-    }
-
-    const linkUndangan = new URL(
-        "https://keisyacaca38-dot.github.io/makrab-alumni/"
-    );
-
-    linkUndangan.searchParams.set("to", tamu.nama);
-    linkUndangan.searchParams.set("kategori", tamu.kategori);
-
-    const pesan = `Halo ${tamu.nama}! 🎉
-
-Kamu diundang ke acara Makrab Alumni!
-
-Yuk, buka undangan digital kami:
-${linkUndangan.toString()}
+Silakan buka undangan digital berikut:
+${url.toString()}
 
 Sampai bertemu di acara makrab! 💗`;
 
     const linkWA = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
 
     window.open(linkWA, "_blank");
-}
-
 
 }
